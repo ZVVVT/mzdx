@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>访客预约-移动端首页</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;padding:0;background:#f5f7fb;font-family:"Microsoft YaHei","Noto Sans SC","SimHei",Arial,sans-serif;color:#333}.app{width:100%;max-width:430px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow-x:hidden}.page{display:none;min-height:100vh;background:#fff}.page.active{display:block}.topbar{height:55px;background:#fff;border-bottom:1px solid #e9e9e9;display:flex;align-items:center;justify-content:center;position:relative;z-index:30}.topbar .title{font-size:21px;font-weight:700;letter-spacing:.5px}.back{position:absolute;left:17px;top:15px;width:24px;height:24px;border-left:3px solid #5b5b5b;border-bottom:3px solid #5b5b5b;transform:rotate(45deg);cursor:pointer}.home{background:#eef4ff;min-height:100vh;position:relative}.home:before{content:"";position:absolute;inset:360px 0 0 0;background:radial-gradient(ellipse at 18% 52%,rgba(189,220,255,.18) 0,rgba(189,220,255,.08) 23%,transparent 24%),linear-gradient(110deg,transparent 60%,rgba(207,229,255,.38) 60%,rgba(231,243,255,.15) 75%,transparent 76%);opacity:.75}.banner{width:100%;height:227px;background:url('assets/banner.jpg') center/cover no-repeat}.home-card-wrap{position:relative;padding:0 18px}.menu-card{height:91px;background:#fff;border-radius:0 0 18px 18px;margin:0 0 12px 0;display:flex;align-items:center;padding:0 31px;position:relative;cursor:pointer}.menu-card.second{height:106px;border-radius:13px;margin-top:12px}.menu-icon{width:48px;height:48px;border-radius:18px;margin-right:18px;display:grid;place-items:center;box-shadow:0 0 9px rgba(80,143,255,.13)}.menu-icon.green{background:#dffcf2}.menu-icon.blue{background:#e4eeff}.menu-icon svg{width:31px;height:31px}.menu-text .main{font-size:21px;color:#222;line-height:1.3}.menu-text .sub{font-size:14px;color:#999;margin-top:8px}.arr{position:absolute;right:28px;top:50%;width:19px;height:19px;border-top:2px solid #333;border-right:2px solid #333;transform:translateY(-50%) rotate(45deg)}.home-foot-space{height:520px}
+.reserve-page{background:#f4f4f4;padding-bottom:14px}.section{background:#fff;border-radius:0 0 7px 7px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}.section-title{height:53px;display:flex;align-items:center;padding:0 17px;font-size:18px;color:#fff;background:linear-gradient(90deg,#72c1ff 0%,#eef8ff 100%)}.form-body{padding:13px 16px 8px}.field{border-bottom:1px solid #eee;padding:0 0 12px;margin-bottom:19px;position:relative}.label{font-size:17px;color:#666;line-height:25px;margin-bottom:15px}.req{color:red;margin-right:5px}.placeholder,.value{height:24px;line-height:24px;font-size:16px;color:#c9cbd0}.value{color:#333}.calendar{position:absolute;right:0;bottom:16px;color:#999;font-size:16px}.checks{display:flex;gap:26px;align-items:center;padding:2px 0 11px}.box{display:inline-flex;align-items:center;font-size:18px;color:#222;margin-right:4px}.sq,.radio{width:21px;height:21px;border:1.5px solid #cfcfcf;background:#f8f8f8;margin-right:9px;display:inline-block}.radio{border-radius:50%}.radio.on,.sq.on{background:#4098ff;border-color:#4098ff;position:relative}.radio.on:after{content:"";position:absolute;width:7px;height:12px;border-right:2px solid #fff;border-bottom:2px solid #fff;left:6px;top:2px;transform:rotate(45deg)}.sq.on:after{content:"✓";color:#fff;position:absolute;left:3px;top:-2px;font-size:17px}.add-row{height:36px;margin:22px 16px 10px;border:1px dashed #d7d7d7;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#555;cursor:pointer}.add-row.blue{border-color:#39a7ff;color:#27a0ff;margin-top:16px}.plus{font-size:24px;margin-right:12px;font-weight:300}.submit{margin:16px 17px 9px;height:49px;border-radius:4px;background:#1895f9;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,.16);cursor:pointer}.saveico{font-size:20px;margin-right:10px}.visitor-card{margin:17px 11px 0;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.10);padding:17px 13px 6px}.visitor-head{display:flex;justify-content:space-between;font-size:16px;margin-bottom:19px}.delete{color:#f5222d}.err{color:#ff1f2d;font-size:16px;margin-top:10px;margin-bottom:17px}.select-arrow{position:absolute;right:0;bottom:18px;width:13px;height:13px;border-top:2px solid #aaa;border-right:2px solid #aaa;transform:rotate(45deg)}.data-error{color:#ff1f2d;font-size:16px;margin:8px 14px 0}.hidden{display:none!important}
+.record-page{background:#fff}.record-sticky{position:sticky;top:0;background:#fff;z-index:50;box-shadow:0 1px 0 #eee}.notice{height:45px;background:#fff6ce;color:#ff5b00;font-size:17px;display:flex;align-items:center;padding:0 18px;border-top:1px solid #f0e9b8}.notice svg{width:22px;height:22px;margin-right:12px;flex:0 0 auto}.search-form{padding:47px 12px 18px;background:#fff}.search-form.filled{padding-top:33px}.search-line{height:43px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.search-line input{border:0;outline:0;font-size:17px;color:#222;width:72%;font-family:inherit;background:transparent}.search-line input::placeholder{color:#c5c7cc}.must{font-size:16px;color:red}.search-btn{height:51px;background:#1e96f4;color:#fff;border-radius:4px;margin:13px 0 0;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 2px 5px rgba(0,0,0,.08);cursor:pointer}.search-btn svg{width:23px;height:23px;margin-right:14px}.filter{text-align:right;color:#5f6063;font-size:18px;margin:55px 18px 0}.filter svg{width:18px;height:18px;vertical-align:-2px;margin-left:6px}.empty{text-align:center;color:#d4d4d4;margin-top:118px}.empty svg{width:88px;height:70px;display:block;margin:0 auto 12px}.empty div{font-size:18px}.list-wrap{padding:18px 17px 30px;background:#fff}.record-card{position:relative;background:#fff;border:1px solid #dedede;border-radius:10px;margin:0 0 18px;box-shadow:0 8px 18px rgba(0,0,0,.18);overflow:hidden}.tag{display:inline-block;border:1px solid #d1d1d1;border-radius:5px;color:#555;background:#fafafa;font-weight:700;font-size:17px;padding:2px 8px;margin:20px 0 17px 27px}.status{position:absolute;right:0;top:0;padding:4px 10px;font-size:15px;border-radius:0 9px 0 9px}.status.pending{border:1px solid #cfcfcf;background:#fff;color:#222}.status.pass{background:#52c41a;color:#fff}.record-info{border-top:1px solid #eee;padding:18px 17px 18px}.record-name{font-size:20px;font-weight:700;margin-bottom:13px}.info-row{font-size:17px;line-height:26px;white-space:nowrap}.info-row .k{color:#333;margin-right:10px}.info-row .v{color:#999}.actions{height:45px;border-top:1px solid #e5e5e5;display:flex}.act{flex:1;display:flex;align-items:center;justify-content:center;font-size:17px;color:#168dff;border-right:1px solid #e5e5e5;cursor:pointer}.act:last-child{border-right:0}.act.del{color:#ff4d2e}.detail-page{background:#f4f4f4;padding:10px 10px 28px}.detail-section{border-radius:8px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.12);overflow:hidden;margin:0 0 10px}.detail-title{height:52px;background:linear-gradient(90deg,#80c5ff,#ecf8ff);color:#fff;font-size:15px;display:flex;align-items:center;padding:0 19px}.detail-body{padding:12px 18px 13px}.detail-item{border-bottom:1px solid #eee;padding:0 0 12px;margin-bottom:13px}.detail-label{font-size:14px;color:#777;margin-bottom:13px}.detail-value{font-size:14px;color:#333;line-height:20px}.inner-card{background:#fff;margin:16px 10px 13px;padding:16px 17px 12px;box-shadow:0 0 13px rgba(0,0,0,.12)}.inner-card .field{margin-bottom:15px;padding-bottom:11px}.inner-card .label{font-size:14px;margin-bottom:11px}.inner-card .value,.inner-card .placeholder{font-size:14px}.radio-line{display:flex;align-items:center;gap:14px;color:#aaa;font-size:14px}.radio.sm{width:20px;height:20px;margin-right:5px}.radio.sm.on:after{left:6px;top:2px}.fee{padding:11px 19px;border-top:1px solid #eee}.fee .label{font-size:14px;margin-bottom:11px}.table{margin:19px 29px 5px;border-collapse:collapse;width:calc(100% - 58px);font-size:14px}.table th,.table td{border-bottom:1px solid #eee;padding:9px 4px;text-align:left}.table th{font-weight:700;color:#111}.table td{color:#444}.spacer20{height:20px}@media(min-width:700px){body{background:#e9edf5}.app{box-shadow:0 0 0 1px #ddd}}
+</style>
+</head>
+<body>
+<div class="app">
+  <section id="home" class="page home active">
+    <div class="banner"></div>
+    <div class="home-card-wrap">
+      <div class="menu-card" onclick="openReserve()">
+        <div class="menu-icon green"><svg viewBox="0 0 64 64"><rect x="11" y="9" width="38" height="46" rx="7" fill="#8bf0d5"/><text x="27" y="31" font-size="16" fill="#fff" font-weight="700">师</text><path d="M18 44h20" stroke="#fff" stroke-width="4"/><circle cx="19" cy="36" r="6" fill="#fff" opacity=".8"/><path d="M12 50h32" stroke="#fff" stroke-width="4"/></svg></div>
+        <div class="menu-text"><div class="main">来校预约</div></div><div class="arr"></div>
+      </div>
+      <div class="menu-card second" onclick="openRecords()">
+        <div class="menu-icon blue"><svg viewBox="0 0 64 64"><rect x="11" y="12" width="42" height="40" rx="8" fill="#b7d0ff"/><rect x="26" y="24" width="25" height="24" rx="4" fill="#4d70f5" opacity=".75"/><circle cx="31" cy="25" r="6" fill="#3457ee"/><rect x="16" y="36" width="19" height="14" rx="3" fill="#fff" opacity=".62"/></svg></div>
+        <div class="menu-text"><div class="main">预约记录</div><div class="sub">查询个人预约记录</div></div><div class="arr"></div>
+      </div>
+    </div>
+    <div class="home-foot-space"></div>
+  </section>
+
+  <section id="reserve" class="page reserve-page">
+    <div class="topbar"><div class="back" onclick="showPage('home')"></div><div class="title">来校预约</div></div>
+    <div class="spacer20"></div>
+    <div class="section">
+      <div class="section-title">预约信息</div>
+      <div class="form-body">
+        <div class="field"><div class="label"><span class="req">*</span>受访人姓名</div><div class="placeholder">受访人姓名</div></div>
+        <div class="field"><div class="label"><span class="req">*</span>受访人单位</div><div class="placeholder">暂无数据</div></div>
+        <div class="field"><div class="label"><span class="req">*</span>预计入校时间</div><div class="placeholder">预计入校时间</div><div class="calendar">▣</div></div>
+        <div class="field"><div class="label"><span class="req">*</span>预计离校时间</div><div class="placeholder">预计离校时间</div><div class="calendar">▣</div></div>
+        <div class="field"><div class="label"><span class="req">*</span>进出校区</div><div class="checks"><span class="box"><i class="sq"></i>榆中校区</span><span class="box"><i class="sq"></i>本部校区</span></div></div>
+        <div class="field" style="border-bottom:0;margin-bottom:0"><div class="label"><span class="req">*</span>来访事由</div><div class="placeholder">请输入</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">来访人</div>
+      <div id="reserveVisitorEmpty" class="add-row" onclick="expandReserveVisitor()"><span class="plus">＋</span>添加</div>
+      <div id="reserveVisitorExpanded" class="hidden">
+        <div class="visitor-card">
+          <div class="visitor-head"><span>#1</span><span class="delete">删除</span></div>
+          <div class="field"><div class="label"><span class="req">*</span>姓名</div><div class="placeholder">姓名</div><div class="err">姓名不能为空</div></div>
+          <div class="field"><div class="label"><span class="req">*</span>性别</div><div class="placeholder">性别</div><div class="select-arrow"></div><div class="err">性别不能为空</div></div>
+          <div class="field"><div class="label"><span class="req">*</span>身份证号</div><div class="placeholder">身份证号</div><div class="err">身份证号不能为空</div></div>
+          <div class="field"><div class="label"><span class="req">*</span>手机号</div><div class="placeholder">手机号</div><div class="err">手机号不能为空</div></div>
+          <div class="field"><div class="label"><span class="req">*</span>是否车辆随行</div><div class="checks"><span class="box"><i class="radio"></i>否</span><span class="box"><i class="radio"></i>是</span></div></div>
+        </div>
+        <div class="add-row blue"><span class="plus">＋</span>添加</div>
+        <div class="data-error">数据格式有误</div>
+      </div>
+    </div>
+    <div class="submit"><span class="saveico">▣</span>提交</div>
+  </section>
+
+  <section id="records" class="page record-page">
+    <div id="recordSearchArea" class="record-sticky">
+      <div class="topbar"><div class="back" onclick="showPage('home')"></div><div id="recordTitle" class="title">预约记录</div></div>
+      <div id="recordQueryBox">
+        <div class="notice"><svg viewBox="0 0 32 32"><path d="M5 14h5l12-7v18l-12-7H5z" fill="none" stroke="#ff5b00" stroke-width="2.4"/><path d="M7 18l2 8" stroke="#ff5b00" stroke-width="2.4"/></svg>请准确输入个人姓名和手机号，查询个人预约记录</div>
+        <div id="recordSearchForm" class="search-form">
+          <div class="search-line"><input id="recordName" placeholder="请输入姓名"><span class="must">(必填)</span></div>
+          <div class="search-line"><input id="recordPhone" placeholder="请输入手机号"><span class="must">(必填)</span></div>
+          <div class="search-btn" onclick="showRecordList()"><svg viewBox="0 0 32 32"><circle cx="14" cy="14" r="8" fill="none" stroke="#fff" stroke-width="3"/><path d="M20 20l7 7" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>搜索</div>
+        </div>
+      </div>
+    </div>
+    <div id="recordEmpty">
+      <div class="filter">筛选 <svg viewBox="0 0 32 32"><path d="M4 7h24L18 18v7l-4 2v-9z" fill="none" stroke="#555" stroke-width="2.4"/></svg></div>
+      <div class="empty"><svg viewBox="0 0 120 90"><ellipse cx="60" cy="73" rx="42" ry="10" fill="#f3f3f3"/><path d="M32 25h56v40H32z" fill="#fff" stroke="#ddd" stroke-width="4"/><path d="M32 25l14-14h28l14 14" fill="#fff" stroke="#ddd" stroke-width="4"/><path d="M48 36h24l3 7H45z" fill="#fff" stroke="#ddd" stroke-width="3"/></svg><div>暂无数据</div></div>
+    </div>
+    <div id="recordList" class="hidden">
+      <div class="filter">筛选 <svg viewBox="0 0 32 32"><path d="M4 7h24L18 18v7l-4 2v-9z" fill="none" stroke="#555" stroke-width="2.4"/></svg></div>
+      <div class="list-wrap">
+        <div class="record-card">
+          <div class="status pending">审核中</div><span class="tag">来校预约</span>
+          <div class="record-info"><div class="record-name">徐立磊</div><div class="info-row"><span class="k">进校时间</span><span class="v">2026-06-10 08:00:00</span></div><div class="info-row"><span class="k">离校时间</span><span class="v">2026-06-10 18:00:00</span></div><div class="info-row"><span class="k">申请时间</span><span class="v">2026-06-09 18:05</span></div><div class="info-row"><span class="k">审核部门</span><span class="v">土木工程学院</span></div><div class="info-row"><span class="k">审核人</span><span class="v">武红娟,王丹丹,郭启龙,马广临,祁永龙</span></div></div>
+          <div class="actions"><div class="act" onclick="showRecordDetail()">▯ 详情</div><div class="act">✎ 修改</div><div class="act del">♲ 删除</div></div>
+        </div>
+        <div class="record-card"><div class="status pass">已通过</div><span class="tag">来校预约</span><div class="record-info"><div class="record-name">徐立磊</div><div class="info-row"><span class="k">进校时间</span><span class="v">2026-04-27 13:20:00</span></div><div class="info-row"><span class="k">离校时间</span><span class="v">2026-04-27 19:20:00</span></div><div class="info-row"><span class="k">申请时间</span><span class="v">2026-04-27 13:21</span></div></div><div class="actions"><div class="act" onclick="showRecordDetail()">▯ 详情</div></div></div>
+		<div class="record-card"><div class="status pass">已通过</div><span class="tag">来校预约</span><div class="record-info"><div class="record-name">徐立磊</div><div class="info-row"><span class="k">进校时间</span><span class="v">2026-04-27 13:20:00</span></div><div class="info-row"><span class="k">离校时间</span><span class="v">2026-04-27 19:20:00</span></div><div class="info-row"><span class="k">申请时间</span><span class="v">2026-04-27 13:21</span></div></div><div class="actions"><div class="act" onclick="showRecordDetail()">▯ 详情</div></div></div>
+		<div class="record-card"><div class="status pass">已通过</div><span class="tag">来校预约</span><div class="record-info"><div class="record-name">徐立磊</div><div class="info-row"><span class="k">进校时间</span><span class="v">2026-04-27 13:20:00</span></div><div class="info-row"><span class="k">离校时间</span><span class="v">2026-04-27 19:20:00</span></div><div class="info-row"><span class="k">申请时间</span><span class="v">2026-04-27 13:21</span></div></div><div class="actions"><div class="act" onclick="showRecordDetail()">▯ 详情</div></div></div>
+      </div>
+    </div>
+    <div id="recordDetail" class="detail-page hidden">
+      <div class="detail-section"><div class="detail-title">预约信息</div><div class="detail-body">
+        <div class="detail-item"><div class="detail-label">受访人姓名</div><div class="detail-value">王璟</div></div>
+        <div class="detail-item"><div class="detail-label">受访人电话</div><div class="detail-value">13609327860</div></div>
+        <div class="detail-item"><div class="detail-label">受访人单位</div><div class="detail-value">土木工程学院</div></div>
+        <div class="detail-item"><div class="detail-label">预计入校时间</div><div class="detail-value">2026-04-27 13:26:00</div></div>
+        <div class="detail-item"><div class="detail-label">预计离校时间</div><div class="detail-value">2026-04-27 22:26:00</div></div>
+        <div class="detail-item"><div class="detail-label">进出校门</div><div class="radio-line"><span><i class="sq on"></i>榆中校区</span><span><i class="sq"></i>本部校区</span></div></div>
+        <div class="detail-label">来访事由</div><div class="detail-value">安装设备</div>
+      </div></div>
+      <div class="detail-section"><div class="detail-title">来访人</div><div class="inner-card">
+        <div class="field"><div class="label">姓名</div><div class="value">徐立磊</div></div>
+        <div class="field"><div class="label">性别</div><div class="placeholder">男</div><div class="select-arrow"></div></div>
+        <div class="field"><div class="label">身份证号</div><div class="value">620103200007125612</div></div>
+        <div class="field"><div class="label">手机号</div><div class="value">13669343600</div></div>
+        <div class="field"><div class="label">是否有车辆随行</div><div class="radio-line"><span><i class="radio sm"></i>否</span><span><i class="radio sm on"></i>是</span></div></div>
+        <div class="field" style="margin-bottom:0"><div class="label">车牌号</div><div class="value">陕AA64258</div></div>
+      </div>
+      <div class="fee"><div class="label"><span class="req">*</span>是否收费（受访人部门）</div><div class="radio-line"><span><i class="radio sm"></i>是</span><span><i class="radio sm on"></i>待定</span></div></div>
+      <div class="fee"><div class="label"><span class="req">*</span>是否收费（保卫处）</div><div class="radio-line"><span><i class="radio sm on"></i>是</span><span><i class="radio sm"></i>否</span></div></div>
+      </div>
+      <div class="detail-section"><div class="detail-title">审核节点</div><table class="table"><tr><th>审核人</th><th>实际审核人</th></tr><tr><td>武红娟,王丹丹,郭启龙,马广临,祁永龙</td><td>郭启龙</td></tr><tr><td>加沙拉提,黄首华</td><td>黄首华</td></tr></table></div>
+    </div>
+  </section>
+</div>
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function openReserve(){document.getElementById('reserveVisitorEmpty').classList.remove('hidden');document.getElementById('reserveVisitorExpanded').classList.add('hidden');showPage('reserve')}
+function expandReserveVisitor(){document.getElementById('reserveVisitorEmpty').classList.add('hidden');document.getElementById('reserveVisitorExpanded').classList.remove('hidden');setTimeout(()=>document.getElementById('reserveVisitorExpanded').scrollIntoView({block:'start',behavior:'smooth'}),0)}
+function openRecords(){document.getElementById('recordTitle').textContent='预约记录';document.getElementById('recordQueryBox').classList.remove('hidden');document.getElementById('recordSearchArea').classList.add('record-sticky');document.getElementById('recordEmpty').classList.remove('hidden');document.getElementById('recordList').classList.add('hidden');document.getElementById('recordDetail').classList.add('hidden');document.getElementById('recordSearchForm').classList.remove('filled');document.getElementById('recordName').value='';document.getElementById('recordPhone').value='';showPage('records')}
+function showRecordList(){document.getElementById('recordTitle').textContent='预约记录';document.getElementById('recordQueryBox').classList.remove('hidden');document.getElementById('recordSearchArea').classList.add('record-sticky');document.getElementById('recordEmpty').classList.add('hidden');document.getElementById('recordDetail').classList.add('hidden');document.getElementById('recordList').classList.remove('hidden');document.getElementById('recordSearchForm').classList.add('filled');document.getElementById('recordName').value='徐立磊';document.getElementById('recordPhone').value='13669343600';window.scrollTo(0,0)}
+function showRecordDetail(){document.getElementById('recordTitle').textContent='详情';document.getElementById('recordQueryBox').classList.add('hidden');document.getElementById('recordSearchArea').classList.remove('record-sticky');document.getElementById('recordEmpty').classList.add('hidden');document.getElementById('recordList').classList.add('hidden');document.getElementById('recordDetail').classList.remove('hidden');window.scrollTo(0,0)}
+</script>
+</body>
+</html>
